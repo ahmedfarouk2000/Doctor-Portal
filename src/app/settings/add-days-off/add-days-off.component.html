@@ -1,0 +1,61 @@
+<!-- <div class="container">
+    <h2>Please Add Your Days Off</h2>
+    <form [formGroup]="daysOffForm" (ngSubmit)="setDays()">
+ <div  > 
+        <label>Select Day: </label>
+
+        <select formControlName="DayOfWeek" class="time-settings">
+
+            <option value="Sunday">Sunday </option>
+            <option value="Monday">Monday </option>
+            <option value="Tuesday">Tuesday </option>
+            <option value="Wednesday">Wednesday </option>
+            <option value="Thursday">Thursday </option>
+            <option value="Friday">Friday </option>
+            <option value="Saturday">Saturday </option>  
+
+        </select>
+        <br/>
+        <span *ngIf="
+        daysOffForm.controls['DayOfWeek'].hasError('required') &&
+        daysOffForm.controls['DayOfWeek'].touched" 
+        class="error">Day is required</span>
+</div>
+        <button [disabled]="daysOffForm.invalid" class="btn" type="submit" >Save Day</button>
+        
+    </form>
+<h3 class="mess" *ngIf="res">{{res.message}}</h3>
+</div> -->
+
+<div class="container">
+         <h2>Add Days Off</h2>
+
+        <form class="AppointmentDetailsForm" [formGroup]="DaysOff" (ngSubmit)="HandleDaysOff($event.submitter.id)">
+        
+                <div class="wrapper">
+                        <!-- <span>Days Off</span> -->
+                        <div class="dropDownContainer"> 
+                            <input  type="text" placeholder="Select Day" class="input disabled Time" autocomplete="off" [value]="this.DaysOff.controls['Day'].getRawValue()">
+                            <button (click)="ToggleDropDownDaysOff()" class="openIcon">
+                                <svg width="25" height="25" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="m6 9 6 6 6-6"></path>
+                                </svg>
+                            </button>
+                            <div class="vertical-menu-opened-daysoff" id="dropDownDaysOff">
+                                <a (click)="setSelectedDaysOff(currentDay)" *ngFor="let currentDay of this.days">{{currentDay}}</a>  
+                            </div>
+                        </div>
+
+                        <span class="error" id="DaySpan">*{{ErrorMsg}}</span> 
+                </div>
+
+                <button class="btnSubmitDaysOff" id="DaysOffButton">Confirm</button>
+
+        </form>
+        <!-- <div class="OverElements" *ngIf="loading" > 
+            <mat-progress-spinner mode="indeterminate">
+            </mat-progress-spinner>
+        </div> -->
+
+
+</div>

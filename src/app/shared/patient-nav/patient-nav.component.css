@@ -1,0 +1,30 @@
+.navBarrr{
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 15px;
+    margin-bottom: 25px;
+  }
+  .list{
+    display: flex;
+    justify-content: flex-end;
+    list-style: none;
+    background-color: rgb(77, 109, 109);
+    border-radius:15px ;
+    
+  }
+  .nav__item--active {
+    background-color: var(--grey-Dark-3);
+  }
+  .list-nav{
+    padding: 12px 5px;
+    border-radius: 15px;
+  }
+  .nav{
+    text-decoration: none;
+    padding: 15px 30px;
+    color: #fff;
+    font-size: 1.5rem;
+    margin: 10px;
+    border-radius: 25px;
+  }

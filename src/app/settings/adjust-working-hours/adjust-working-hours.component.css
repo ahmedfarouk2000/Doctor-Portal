@@ -1,0 +1,147 @@
+.container{
+  min-height: 75vh;
+  min-width: 60vh;
+  /* min-width: 60vh; */
+  /* padding: 4rem; */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+label{
+font-size: 1.4rem;
+}
+
+.label{
+  /* font-size: 1.4rem; */
+  color: red;
+  font-weight: 400;
+}
+.day-settings,.time-settings{
+ font-size: 2rem;
+ margin: 10px;
+ width: 70%;
+ border-radius: 14px;
+ padding: 12px;
+
+}
+
+.input{
+  outline: none;
+  font-family: fontMedium;
+  /* padding: 16px 44px; */
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  /* width: 250px; */
+  height: 44px;
+  padding: 10px ;
+  /* padding: 10px  ; */
+  width: 100%;
+  border-radius: 14px;
+  /* margin-bottom: 36px; */
+  font-size: 14px;
+  transition: 0.4s all;
+  text-align: center;
+  box-sizing: border-box;
+  
+  
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 85%;
+}
+
+.day{
+  /* background-color: red; */
+  position: relative;
+  margin-bottom:38px ;
+  
+}
+
+
+
+
+.input:focus {
+  border-color: rgba(0, 0, 0, 0.5);
+}
+
+
+
+.btn{
+ padding: 8px 16px;
+ margin-top: 15px;
+ margin-bottom: 15px;
+}
+
+
+@media (min-width: 360px) and (max-width: 926px) {
+    .container{
+        min-width: 30vh;
+    }
+    .day-settings{
+      width: 30%;
+    }
+    .time-settings{
+        width: 40%;
+       }
+  }
+
+
+  .btnSubmit {
+    background-color: black;
+    border: solid black 2px;
+    border-radius: 40px;
+    /* width: 100%; */
+    transition: 0.4s all;
+    color: white;
+    cursor: pointer;
+    transition: 0.4s all;
+    font-size: 1.2rem;
+    padding: 6px 30px;
+    font-family: fontMedium;
+    margin-top: 16px;
+    /* padding: 0.7rem 3rem ; */
+  }
+  
+  .btnSubmit:hover {
+    /* color: white; */
+    border: solid #FFC600 2px;
+    background-color: #FFC600;
+    /* color: green; */
+  
+  }
+
+.mat-dialog-container{
+  border-radius: 14px !important;
+}
+  
+/* .error {
+  color: red;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+} */
+
+.error{
+  position: absolute;
+  /* opacity:0; */
+  left: 0;
+  top: 110%;
+  color: red;
+  transition: 0.4s all;
+}
+.mess{
+  color: red;
+}
+
+h2 {
+  font-size: 2rem;
+  align-self: center;
+  letter-spacing: 2px;
+}
+
+::ng-deep .mat-dialog-container{
+  border-radius: 14px;
+}

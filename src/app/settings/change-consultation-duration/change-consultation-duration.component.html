@@ -1,0 +1,92 @@
+<!-- <div *ngIf="isLoading" class="spinner">
+  <mat-spinner></mat-spinner>
+</div>
+
+<div class="container" *ngIf="!isLoading">
+    <h2>Your Current Consultation Duration IS {{mins}} min</h2>
+
+    <form [formGroup]="cosultaionForm" (ngSubmit)="serDuration()">
+
+        <label>Consultation Duration:</label>
+
+        <input
+          class="time-settings"
+          formControlName="Consultation" 
+          type="number"  
+          placeholder="{{mins}} min"
+          min="10"
+        />
+        <br/>
+        <span
+      *ngIf="
+      cosultaionForm.controls['Consultation'].hasError('required') &&
+        cosultaionForm.controls['Consultation'].touched
+      "
+      class="error"
+      >Consultation Duration is required</span
+    >
+    <br/>
+    <span
+      *ngIf="
+      cosultaionForm.controls['Consultation'].hasError('min') &&
+        cosultaionForm.controls['Consultation'].touched
+      "
+      class="error"
+      >Consultation Duration minumum 20 min</span
+    >
+
+        <br/>
+        <button [disabled]="cosultaionForm.invalid" class="btn">Save Duration</button>
+        <h3 class="mess" *ngIf="res">{{res.message}}</h3>
+      </form>
+</div>
+ -->
+
+
+
+ <div class="container">
+  <h2>Edit Consultation Duration</h2>
+
+        <div class="startTime" *ngIf="!isLoading">
+          <span class="DateText">Current Consultation Duration</span>
+          <svg width="50" height="50" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round"
+            stroke-width="1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2a10 10 0 1 0 0 20 10 10 0 1 0 0-20z"></path>
+            <path d="M12 6v6l4 2"></path>
+          </svg>
+          <span class="TimeText">{{this.mins}} min</span>
+        </div>
+
+ <form class="AppointmentDetailsForm" [formGroup]="DurationForm" (ngSubmit)="HandleSetConsultationDuration($event.submitter.id)">
+ 
+         <div class="wrapper">
+                 <!-- <span>Days Off</span> -->
+                 <div class="dropDownContainer"> 
+                     <input  type="text" placeholder="Select Duration in Minutes" class="input disabled Time" autocomplete="off" [value]="this.DurationForm.controls['Duration'].getRawValue()">
+                     <button (click)="ToggleDropDownDuration()" class="openIcon">
+                         <svg width="25" height="25" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                             <path d="m6 9 6 6 6-6"></path>
+                         </svg>
+                     </button>
+                     <div class="vertical-menu-opened-duration" id="dropDownDuration">
+                         <a (click)="setSelectedDuration(currentDuration)" *ngFor="let currentDuration of this.AllDurations">{{currentDuration}}</a>  
+                     </div>
+                 </div>
+
+                 <span class="error" id="DurationSpan">*{{ErrorMsg}}</span> 
+         </div>
+
+         <button class="btnSubmitDaysOff" id="DurationButton">Confirm</button>
+
+ </form>
+
+ <div class="OverElements" *ngIf="isLoading" > 
+     <mat-progress-spinner mode="indeterminate">
+     </mat-progress-spinner>
+ </div>
+
+
+</div>
+
+
+

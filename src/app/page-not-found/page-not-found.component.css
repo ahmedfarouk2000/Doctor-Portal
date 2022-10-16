@@ -1,0 +1,47 @@
+.Content{   
+    /* background-image: url('../../../assets/images/homeCover2.jpg'); */
+    background-size: 100% 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center ;
+    align-items: center;
+    position: relative;
+    background-color: #E5E5E5;
+    /* background-color: red; */
+  }
+  
+  
+  .container{
+    background-color: white;
+    /* padding: 10rem 20rem; */
+    /* border-radius: 20; */
+    width: 95%;
+    min-height: 90vh;
+    margin: 32px; 
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-around; */
+    justify-content: center;
+    align-items: center;
+    align-items: center;
+    box-shadow: 0 0 20px rgb(33 33 33 / 10%);
+    /* position: relative; */
+  
+  }
+
+  .NoFiles{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   
+}
+
+.noUploadText{
+    /* letter-spacing: 2px; */
+    font-size: 2.5rem;
+    margin: 2px;
+    color: rgba(255, 0, 0, 0.6);
+    margin: 24px;
+}

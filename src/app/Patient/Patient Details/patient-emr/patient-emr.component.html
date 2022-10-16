@@ -1,0 +1,99 @@
+
+   
+    <div class="Content">
+        <div class="container">
+            <span class="AllApointmentsText">All EMRS</span>
+    <div class="EMRcontainer" >
+        <span class="warningText">*{{this.EMRerrorMsg}}</span>
+        <label class="custom-file-upload">
+            <input id='EMR' type="file" placeholder="Enter EMR" class="input" autocomplete="off"
+                (input)="handleFileInput($event.target)" aria-label="File browser example">
+
+                <div class="postion">
+                        <svg width="120" height="120" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round"
+                        stroke-width="0.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <path d="M14 2v6h6"></path>
+                        <path d="M12 18v-6"></path>
+                        <path d="M9 15h6"></path>
+                    </svg>
+                    <span class="uploadText"> Upload File</span>
+                </div>
+           
+        </label>
+
+        <span class="AlluploadedText"> All Uploaded Files</span>
+        <div class="currentFiles" *ngIf="emr!==null">
+
+
+            <div class="fileCard" *ngFor="let EMRfile of this.emr?.files" >
+                <div class="contentUplaod">
+                    <svg width="50" height="50" fill="none" stroke="#000000" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+                        <path d="M13 2v7h7"></path>
+                    </svg>
+                    <span>{{EMRfile?.fileName}}</span>
+                </div>
+                <div class="hoverLayer">
+
+                    <div class="printDocument" (click)="handlePrint(EMRfile?.path)">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#000000"
+                            class="bi bi-printer" viewBox="0 0 16 16">
+                            <path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z" />
+                            <path
+                                d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2H5zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4V3zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2H5zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1z" />
+                        </svg>
+                    </div>
+                    <div class="deleteDocument" (click)="deleteEMR(EMRfile?.documentId)">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#000000"
+                            class="bi bi-trash3" viewBox="0 0 16 16">
+                            <path
+                                d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z" />
+                        </svg>
+                    </div>
+
+
+
+                </div>
+            </div>
+
+
+
+           
+
+        </div>
+        
+        <div class="NoFiles" *ngIf=" this.emr==null">
+            <svg width="50" height="50" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round"
+                stroke-width="1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <path d="M14 2v6h6"></path>
+                <path d="M9 15h6"></path>
+            </svg>
+            <span class="noUploadText"> No Files Were Uploaded!</span>
+        </div>
+        
+    </div>
+   
+
+
+
+
+</div>
+        <div class="OverElements" *ngIf="isLoading">
+            <mat-progress-spinner mode="indeterminate">
+            </mat-progress-spinner>
+        </div>
+
+</div>
+
+
+
+
+
+
+
+<!-- <div *ngIf="!isLoading && emr===null">
+    <h3>There is no Emr in this appoitment</h3>
+</div> -->

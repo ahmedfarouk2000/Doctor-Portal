@@ -1,0 +1,594 @@
+.Content{   
+    /* background-image: url('../../../assets/images/homeCover2.jpg'); */
+    background-size: 100% 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center ;
+    align-items: center;
+    position: relative;
+    /* background-color: red; */
+}
+
+
+.blackLayer{
+    
+    background-color: rgba(0, 0, 0, 0.1);
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    background-color: white;
+    /* padding: 10rem 20rem; */
+    /* border-radius: 20; */
+    width: 90%;
+    height: 60%;
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    
+
+}
+
+ h2 {
+    font-size: 2rem;
+    align-self: center;
+    letter-spacing: 2px;
+}
+
+h3 {
+    font-size: 1.5rem;
+    align-self: center;
+    letter-spacing: 2px;
+}
+
+
+.popUpAddPateint{
+    background-color: white;
+    position: absolute;
+    width: 800px;
+    height: 600px;
+    /* width: 100%;
+    height: 50%; */
+    border-radius: 14px;
+    top: 50%;
+    left: 50%;
+    /* transform: translate(-50%,-50%); */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    transition: 0.3s all;
+    transform: translate(-50%,-50%) scale(0.9)  ;
+    /* transform:; */
+}
+
+
+.confirmMsg{
+    background-color: white;
+    position: absolute;
+    width: 800px;
+    height: 600px;
+    /* width: 100%;
+    height: 50%; */
+    border-radius: 14px;
+    top: 50%;
+    left: 50%;
+    /* transform: translate(-50%,-50%); */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s all;
+    transform: translate(-50%,-50%) scale(0.9)  ;
+    /* transform:; */
+}
+
+.SuccessMsg{
+    padding: 40px;
+}
+
+.popUpCloseAddPatient{
+    /* width: 800px;
+    height: 500px; */
+    transform: translate(-50%,-50%) scale(1)  ;
+    transition: 0.3s all;
+}
+
+.displayNoneAddPatient{
+    display: none;
+    /* visibility: hidden;
+    opacity: 0; */
+}
+
+.enterAnimation{
+    /* transition:  0.4s all; */
+    /* transition:  0.4s translate,  visibility 5s; */
+    /* transform: translateX(10px); */
+}
+
+
+.popUpLayerAddPatient{
+    background-color: rgb(0, 0, 0,0.4);
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left:0;
+    right: 0;
+    bottom: 0;
+    z-index: 999;
+    /* display: none; */
+    visibility: hidden;
+    transition: 0.4s all;
+}
+.visible{
+    opacity: 1;
+    background-color: rgb(0, 0, 0,0.4);
+    visibility: visible;
+    transition: 0.4s all;
+}
+
+.exitAddPatinet{
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    padding: 12px;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    color: white;
+    transition: 0.4s all;
+    cursor: pointer;
+    border-radius: 14px;
+}
+
+.previousAddPatient{
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    padding: 12px;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    color: white;
+    transition: 0.4s all;
+    cursor: pointer;
+    border-radius: 14px;
+    /* transform: rotateZ(-90deg); */
+} 
+
+.exitAddPatinet:hover ,.previousAddPatient:hover{
+    background-color: #FFC600;
+}
+
+.vertical-menu-opened{
+    /* height: 200px; */
+    height: 85px;
+    overflow-y: auto;
+    transition: 0.4s all;
+    position: absolute;
+    left: 0;
+    right: 0;
+    border-radius:14px ;
+   
+}
+
+.vertical-menu-opened a {
+    background-color: #eee;
+    color: black;
+    display: block;
+    padding: 12px;
+    text-decoration: none;
+    text-align: center;
+    transition: 0.3s all;
+    font-size: 14px; 
+    cursor: pointer;
+  }
+  .vertical-menu-opened a:hover{
+    background: #FDF2DB; 
+    /* color: red; */
+  }
+.vertical-menu-closed{
+    height: 0px;
+    /* overflow-y: auto; */
+    transition: 0.4s all;
+}
+.searchInputAddPatient{
+    position: relative;
+    height: 100%;
+    width: 80%;
+    margin: auto;
+    /* background-color: aqua; */
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    
+
+}
+
+
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #FDF2DB; 
+    border-radius: 14px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #FFC600; 
+    border-radius: 14px;
+  }
+  
+  /* Handle on hover */
+  /* ::-webkit-scrollbar-thumb:hover {
+    background: #cc9e00; 
+  } */
+
+
+.input{
+    outline: none;
+    font-family: fontMedium;
+    /* padding: 16px 44px; */
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    /* width: 250px; */
+    height: 44px;
+    padding: 10px ;
+    /* padding: 10px  ; */
+    width: 100%;
+    border-radius: 14px;
+    /* margin-bottom: 36px; */
+    font-size: 14px;
+    transition: 0.4s all;
+    text-align: center;
+    box-sizing: border-box;
+    
+}
+
+
+
+
+.input:focus ,.inputDropDown:focus {
+    border-color: rgba(0, 0, 0, 0.5);
+}
+
+.disabled{
+    pointer-events: none;
+}
+.dropDownContainer{
+    position: relative;
+
+}
+.openIcon{
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border-radius: 14px;
+    border-color: transparent;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    cursor: pointer;
+}
+
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    /* background-color: red; */
+    width: 45%;
+  
+     
+}
+
+.wrapper span{
+    padding-left: 12px;
+}
+
+
+.btnSubmitAddPatient { 
+    background-color: black;
+    border: solid black 2px;
+    border-radius: 40px;
+    /* width: 100%; */
+    transition: 0.4s all;
+    color: white;
+    cursor: pointer;
+    transition: 0.4s all;
+    font-size:1.2rem;
+    padding: 6px 30px ;
+    font-family: fontMedium;
+    align-self: center;
+    /* padding: 0.7rem 3rem ; */
+}
+.btnSubmitAddPatient:hover {
+    border: solid #FFC600 2px;
+    background-color:#FFC600 ;
+}
+
+.btnSubmitAddPatient:disabled{
+    cursor: not-allowed  ;
+    background-color: rgba(0, 0, 0, 0.3);
+    border: solid rgba(0, 0, 0, 0.1) 2px;
+}
+/* .btnSubmitDisabled:hover{
+    border: solid black 2px;
+    background-color:#FFC600 ;
+} */
+
+.NotFound{
+    position: relative;
+    /* display: none; */
+
+}
+.NotFoundButton{
+    position: absolute;
+    right: 0;
+    top: 10%;
+    bottom: 10%;
+    font-size:0.9rem;
+    padding: 4px 16px ;
+}
+
+
+.buttonContainer{
+    display: flex;
+    /* background-color: red; */
+    width: 40%;
+    justify-content: space-around;
+}
+.PatientDetials{
+    /* background-color: red; */
+}
+
+/* .displayBlock{
+    display: none;
+} */
+
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+  }
+
+
+.blackLayer{
+    
+    background-color: rgba(0, 0, 0, 0.1);
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Content{   
+    /* background-image: url('../../../assets/images/homeCover2.jpg'); */
+    background-size: 100% 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center ;
+    align-items: center;
+    position: relative;
+}
+
+.form{
+    background-color: white;
+    /* padding: 10rem 20rem; */
+    /* border-radius: 20; */
+    width: 50%;
+    height: 60%;
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    
+
+}
+.inputs{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    /* background-color: #FFC600; */
+    height: 80%;
+   
+    justify-content: center;
+    /* align-items: stretch; */
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+}
+
+.form h2 {
+    /* flex-grow: 1; */
+    /* flex-grow: 1; */
+    font-size: 2rem;
+    /* background-color: beige; */
+    /* letter-spacing: 1rem; */
+    align-self: center;
+    letter-spacing: 2px;
+}
+
+
+
+.input:focus{
+    border-color: rgba(0, 0, 0, 0.5);
+}
+
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.wrapper span{
+    padding-left: 12px;
+}
+
+/* .btnSubmit{
+    margin: 10px;
+}
+ */
+
+.btnSubmit { 
+    background-color: black;
+    border: solid black 2px;
+    border-radius: 40px;
+    /* width: 100%; */
+    transition: 0.4s all;
+    color: white;
+    cursor: pointer;
+    transition: 0.4s all;
+    font-size:1.2rem;
+    padding: 6px 30px ;
+    font-family: fontMedium;
+    /* padding: 0.7rem 3rem ; */
+  }
+
+  .btnSubmit:hover {
+    /* color: white; */
+    border: solid #FFC600 2px;
+    background-color:#FFC600 ;
+    /* color: green; */
+    
+  }
+
+  .error{
+    position: absolute;
+    opacity:0;
+    left: 0;
+    top: 40%;
+    color: red;
+    transition: 0.4s all;
+  }
+
+
+  .errorAdded{
+    position: absolute;
+    opacity:1;
+    left: 0;
+    top: 60%;   
+    color: red;
+    transition: 0.4s all;
+  }
+
+
+  /* by default this class */
+  .invalid{
+    position: absolute;
+    opacity:0;
+    top: 70%;
+    color: red;
+    transition: 0.4s all;
+  }
+
+  /* will toggle on this class ADD OR REMOVE */
+  .invalidAdded{ 
+    position: absolute;
+    opacity:1;
+    top: 90%;
+    color: red;
+    transition: 0.4s all;
+  }
+  .publicErrorWrapper{
+    position:relative; 
+    display: flex; 
+    justify-content: center;
+    /* bottom: 10%; */
+  }
+
+  .ParentBirthDate{
+    position: relative;
+  }
+  .iconDate{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 5%;
+  }
+
+
+  .mat-tab-group{
+    font-family: fontMedium;
+}
+
+::ng-deep .mat-tab-label {
+    font-family: fontMedium !important;
+    font-weight: 700;
+    letter-spacing: 1px;
+    font-size: 14px;
+}
+
+::ng-deep .mat-tab-body-wrapper{
+    height: 100% !important;
+}
+
+::ng-deep .mat-ink-bar{
+    background-color: #FFC600 !important;
+}
+
+::ng-deep .mat-calendar-body-selected{
+    background-color: #FFC600;
+}
+
+::ng-deep mat-datepicker-content{
+    /* background-color: red; */
+    border-radius: 14px !important;
+}
+::ng-deep .mat-focus-indicator{
+    transition: 0.4s all;
+}
+
+
+::ng-deep .mat-calendar-body-cell-content:hover {
+    background-color: #ffc8004b !important;
+}
+
+mat-datepicker-toggle {
+    color: black !important;
+}
+/* mat-datepicker{
+    color: red !important;
+} */
+
+.mat-calendar-body-cell-content.mat-focus-indicator:hover{
+    color: orange !important;
+}
+::ng-deep .mat-calendar-body-today:not(.mat-calendar-body-selected):not(.mat-calendar-body-comparison-identical){
+    background-color: transparent !important;
+}
+
+::ng-deep .mat-calendar-body-today:not(.mat-calendar-body-selected):not(.mat-calendar-body-comparison-identical){
+    border-color: transparent !important;
+}
+
+
+
+
+
+  
+
+  
+  
+
+
+

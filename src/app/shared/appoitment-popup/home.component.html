@@ -1,0 +1,181 @@
+<!-- <div class="Content">
+    <div class="blackLayer">
+        <div class="container">
+            <h2>Home Page</h2>
+        </div>
+    </div> -->
+    <!-- <button class="btnSubmit" (click)="getAppointments()" >show all Appointments</button>
+    <button class="btnSubmit" (click)="getConsultationDuration()" >get consultionDuration</button>
+    <button class="btnSubmit" (click)="getWorkHours()" >show all working hours</button>
+
+    <button class="btnSubmit" (click)="getDaysOff()" >show all daysOff</button>
+
+    <button class="btnSubmit" (click)="Logout()" >logout</button> -->
+
+
+    <div class="popUpLayer"  id="popUpLayer">
+
+            <div class="popUp" id="searchPage">
+
+                <div class="exit" id="exitSearch" (click)="TogglePopUp($event.target)">
+                    <svg   xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                        <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+                      </svg>
+                </div>
+
+                <h2>Reserve New Appointment</h2>
+
+                <div class="searchInput">
+                    
+                
+
+                    <div class="wrapper">
+                        <span> Search Patient</span>
+                        <div class="dropDownContainer"> 
+                            <input  type="text" placeholder="Patient name or phone" class="input" autocomplete="off" (input)="searchResult()">
+                            <button (click)="ToggleDropDown()" class="openIcon">
+                                <svg width="25" height="25" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="m6 9 6 6 6-6"></path>
+                                 </svg>
+                            </button>
+                        </div>
+                        
+                    </div>
+
+                       
+
+
+                    
+          
+               
+                    
+
+                    <div class="vertical-menu-opened" id="dropDown">
+                        
+                        <div class="NotFound" *ngIf="notFound">
+                            <!-- <a>Patient not Found</a> -->
+                            <a>No Matching Patient Found</a>
+                            <button class="btnSubmit NotFoundButton" (click)="openAddPatient()">Add New Patient</button>
+                        </div>
+
+                        <a  (click)="setSelected(currentPatient)" *ngFor="let currentPatient of AllSearchResults">
+                            {{currentPatient.patientName}} / {{currentPatient.phoneNumber}}</a>
+
+                            
+                      
+                    </div>
+
+                </div>
+
+                <button class="btnSubmit" [disabled]="disabledButton" (click)="GoNextPage()">Reserve Appointment</button>
+              
+                
+
+
+            </div>
+
+
+
+
+            <div class="popUp popUpClose displayNone" id="confirmPage">
+
+                <div class="exit" id="exitConfirm" (click)="TogglePopUp($event.target)">
+                    <svg  xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                        <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+                      </svg>
+                </div>
+
+                <div class="previous" id="previous" (click)="GoNextPage()" >
+                    <svg width="20" height="20" viewBox="0 0 50 80" xml:space="preserve">
+                        <polyline fill="none" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" points="
+                        45.63,75.8 0.375,38.087 45.63,0.375 "/>
+                      </svg>  
+                </div>
+
+                <h2>Confirm Appointment</h2>
+<!-- 
+                <div class="PatientDetials">
+                    <h3> Patient Name: {{CurrentSelected.patientName}}</h3>
+                    <h3> Date: {{Date | date:'EEEE, MMMM d, y'}}</h3>
+                    <h3> From: {{this.getFrom(Date)}}</h3>
+                    <h3> To: {{this.getTo(Date)}}</h3>
+                    <h3> Duration: {{Duration}} min</h3>
+                </div> -->
+
+               
+                    <div class="content">
+                                  <div class="date">
+                                    <!-- <span class="TimeText">{{CurrentSelected.patientName}}</span> -->
+                                    <svg width="50" height="50" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round"
+                                      stroke-width="1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                      <rect width="18" height="18" x="3" y="4" rx="2" ry="2"></rect>
+                                      <path d="M16 2v4"></path>
+                                      <path d="M8 2v4"></path>
+                                      <path d="M3 10h18"></path>
+                                    </svg>
+                                    <span class="TimeText">{{Date | date:'EEEE, MMMM d, y'}}</span>
+        
+                                  </div>
+        
+                                  <div class="time">
+        
+                                    <div class="startTime">
+                                      <span class="DateText">From</span>
+                                      <svg width="50" height="50" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 2a10 10 0 1 0 0 20 10 10 0 1 0 0-20z"></path>
+                                        <path d="M12 6v6l4 2"></path>
+                                      </svg>
+                                      <span class="TimeText">{{this.getFrom(Date)}}</span>
+                                    </div>
+
+                                    <div class="ArrowContainer">
+                                        <span class="TimeText">{{Duration}} min</span>
+                                        <div class="allArrow">
+                                            <div class="bar"></div>
+                                            <div class="RightArrow"></div>
+                                          </div>
+                                    </div>
+                                   
+        
+        
+                                    <div class="endTime">
+                                      <span class="DateText">To</span>
+                                      <svg width="50" height="50" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 2a10 10 0 1 0 0 20 10 10 0 1 0 0-20z"></path>
+                                        <path d="M12 6v6l4 2"></path>
+                                      </svg>
+                                      <span class="TimeText"> {{this.getTo(Date)}}</span>
+                                    </div>
+                                  </div>
+                    </div>
+        
+               
+        
+        
+        
+        
+            
+
+
+
+             
+
+               
+                <div class="buttonContainer">
+                    <button class="btnSubmit"  (click)="Confirm(CurrentSelected)" id="confirm">confirm</button>
+                    <button class="buttonMain"  (click)="TogglePopUp($event.target)" id="cancel">cancel</button>
+                </div>
+            
+              
+                
+
+
+            </div>
+
+
+
+    </div>
+   
+<!-- </div> -->

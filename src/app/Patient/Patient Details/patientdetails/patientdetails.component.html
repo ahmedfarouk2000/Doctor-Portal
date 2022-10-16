@@ -1,0 +1,168 @@
+<!-- <div *ngIf="isLoading" class="spinner">
+  <mat-spinner></mat-spinner>
+</div> -->
+
+
+<div class="Content">
+  <div class="container">
+
+ 
+      <div class="PatientDetails" *ngIf="!isLoading">
+
+
+        <div class="MainDetails">
+
+              <div class="patientIcon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                  <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                  <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                </svg>
+            </div>
+
+            <div class="Name">
+                <h3 class="BoldName">{{patientDetails.patientName}}</h3>
+                <div class="genderPlusBirth">
+                  
+                  <h3 >{{patientDetails.gender}}</h3>
+                  <h3 > {{this.getAge(patientDetails.birthDate)}} Yrs.</h3>
+                </div>
+             
+            </div>
+      
+        </div>
+     
+        <div class="RemainingDetails">
+               <h3 class="phone">{{patientDetails.phoneNumber}}</h3>
+              <h3 class="height">{{patientDetails.height}} cm</h3>
+              <h3 class="last">{{patientDetails.lastVisitDate}}</h3>
+            </div>
+      </div>
+
+
+    <div class="AllAppointments">
+      <span class="AllApointmentsText">All Appointments</span>
+      <div class="card" *ngFor="let currentAppointment of this.patientDetails?.appointments">
+            <div class="content">
+                          <div class="date">
+                            <svg width="50" height="50" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round"
+                              stroke-width="1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                              <rect width="18" height="18" x="3" y="4" rx="2" ry="2"></rect>
+                              <path d="M16 2v4"></path>
+                              <path d="M8 2v4"></path>
+                              <path d="M3 10h18"></path>
+                            </svg>
+                            <!-- <span class="TimeText">{{this.convertToStringDate(currentAppointment.startTime)}}</span> -->
+                            <span class="TimeText">{{currentAppointment.startTime | date:'EEEE, MMMM d, y'}}</span>
+
+                          </div>
+
+                          <div class="time">
+
+                            <div class="startTime">
+                              <span class="DateText">From</span>
+                              <svg width="50" height="50" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2a10 10 0 1 0 0 20 10 10 0 1 0 0-20z"></path>
+                                <path d="M12 6v6l4 2"></path>
+                              </svg>
+                              <span class="TimeText">{{this.convertToStringTime(currentAppointment.startTime)}}</span>
+                            </div>
+
+                            <div class="allArrow">
+                              <div class="bar"></div>
+                              <div class="RightArrow"></div>
+                            </div>
+
+
+                            <div class="endTime">
+                              <span class="DateText">To</span>
+                              <svg width="50" height="50" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2a10 10 0 1 0 0 20 10 10 0 1 0 0-20z"></path>
+                                <path d="M12 6v6l4 2"></path>
+                              </svg>
+                              <span class="TimeText"> {{this.convertToStringTime(currentAppointment.endTime)}}</span>
+                            </div>
+                          </div>
+
+                          
+                          <!-- <ul class="navBarrr">
+                          <div class="list">
+                            <li class="list-nav" routerLinkActive="nav__item--active">
+                              <a class="nav" routerLink="/patientdetails/{{currentAppointment.patientId}}">Details</a>
+                            </li>
+
+                            <li class="list-nav" routerLinkActive="nav__item--active">
+                              <a class="nav" routerLink="/vitals/{{currentAppointment.appointmentId}}"
+                                routerLinkActive="side-nav__item--active">Vitals</a>
+                            </li>
+                            <li class="list-nav" routerLinkActive="nav__item--active">
+                              <a class="nav" routerLink="/emr/{{currentAppointment.appointmentId}}"
+                                routerLinkActive="side-nav__item--active">Emr</a>
+                            </li>
+
+                          </div>
+                        </ul> -->
+            </div>
+
+        <div class="hoverLayer">
+
+          <div class="vitals" routerLink="/vitals/{{currentAppointment.appointmentId}}">
+            <div class="Vitalscontent">
+                    <svg width="120" height="120" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                  </svg>
+                  <span class="AllApointmentsText">Vitals</span>
+            </div>
+          </div>
+
+          <div class="emr" routerLink="/emr/{{currentAppointment.appointmentId}}">
+            <div class="EMRcontent">
+                  <svg width="120" height="120" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+                    <path d="M13 2v7h7"></path>
+                </svg>
+                <span class="AllApointmentsText">EMR</span>
+            </div>
+          </div>
+
+
+
+        </div>
+
+
+
+
+      </div>
+    </div>
+
+
+    <div class="NoFiles" *ngIf="this.patientDetails?.appointments?.length==0">
+      <svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" fill="currentColor" class="bi bi-calendar2-x" viewBox="0 0 16 16">
+        <path d="M6.146 8.146a.5.5 0 0 1 .708 0L8 9.293l1.146-1.147a.5.5 0 1 1 .708.708L8.707 10l1.147 1.146a.5.5 0 0 1-.708.708L8 10.707l-1.146 1.147a.5.5 0 0 1-.708-.708L7.293 10 6.146 8.854a.5.5 0 0 1 0-.708z"/>
+        <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z"/>
+        <path d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z"/>
+      </svg>
+    <span class="NoApointmentsText">No Appointments Were Found!</span>
+</div>   
+
+
+
+
+
+
+
+  </div>
+
+  
+
+
+  <div class="OverElements" *ngIf="isLoading">
+    <mat-progress-spinner mode="indeterminate">
+    </mat-progress-spinner>
+  </div>
+
+
+
+
+</div>

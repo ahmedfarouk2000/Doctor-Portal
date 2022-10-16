@@ -1,0 +1,227 @@
+<div class="Content">
+        <div class="container">
+            <!-- <h2>calendar</h2> -->
+            <!-- <h2>{{this.currentWeekDates[1] | date:'MM-dd'}}</h2> -->
+
+      
+
+
+        <div class="calendar HiddenUntilLoad" cdkDropListGroup >
+
+          <div class="arrows">
+
+          <div class="arrowContainer">
+                <button class="leftarrow" (click)="previousMonth()">
+                      <svg width="50" height="50" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16.5 8 13 11.5l3.5 3.5"></path>
+                        <path d="M10.5 8 7 11.5l3.5 3.5"></path>
+                    </svg>
+                </button>
+
+                <button class="leftarrow" (click)="previousWeek()">
+                    <svg  width="30" height="30" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path d="m15 6-6 6 6 6"></path>
+                  </svg>
+              </button>
+
+          </div>
+
+          <div class="arrowContainer">
+                <button class="rightarrow"  (click)="nextWeek()">
+                    <svg  width="30" height="30" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path d="m9 6 6 6-6 6"></path>
+                  </svg>
+                </button>
+
+                <button class="rightarrow"  (click)="nextMonth()">
+                  <svg width="50" height="50" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="m7 8 3.5 3.5L7 15"></path>
+                    <path d="m13 8 3.5 3.5L13 15"></path>
+                 </svg>  
+              </button>
+          </div>
+               
+      </div>
+  
+           
+            <ul class="column">
+                <li class="empty"></li>
+                <li class="times" *ngFor="let number of FillTableNumbers">
+                    <div class="timeStyle"> {{number.StartTime.hour}}:{{number.StartTime.min}}</div>
+                    <!-- <div class="timeStyle"> {{ConvertAllToMin(number.hour,number.min)}}</div> -->
+
+                </li>
+                
+                <!-- <li class="times transparent">
+                    <div class="timeStyle"> {{lastDegit()}}</div>
+
+                </li> -->
+              </ul>
+
+              <ul class="column"
+              cdkDropList
+              [cdkDropListData]="FillTableSun"
+              [ngClass]="{'currentDay':this.getWholeDateFormatTemp(this.FillTableSun[0]?.date)==this.currentDayDate}"
+              (cdkDropListDropped)="drop($event)"
+              >
+                <li class="header">Sunday<br> {{this.currentWeekDates[0] | date:'MM-dd'}}</li>
+                <li  class="sun" (click)="ReserveAppointment(number)" [ngClass]="{'alreadySelected':number.reservedOrNot,'notSelected':!number.reservedOrNot,'outWorkHours':!number.workHoursOrNot ,'disabled':number.daysOffOrNot}" cdkDrag [cdkDragDisabled]="!number.reservedOrNot" id="{{'sun'+ConvertAllToMin(number.StartTime.hour,number.StartTime.min)}}" *ngFor="let number of FillTableSun">
+                    <svg *ngIf="!number.reservedOrNot" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-lg addIcon" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
+                      </svg>
+                        <h3 *ngIf="number.reservedOrNot" class="textPatient">{{number.PatientName}}</h3>
+                </li>
+              </ul>
+
+              <ul class="column"
+              cdkDropList
+              [cdkDropListData]="FillTableMon"
+              [ngClass]="{'currentDay':this.getWholeDateFormatTemp(this.FillTableMon[0]?.date)==this.currentDayDate}"
+              (cdkDropListDropped)="drop($event)"
+              >
+                <li class="header">Monday<br> {{this.currentWeekDates[1] | date:'MM-dd'}}</li>
+                <li  class="mon" (click)="ReserveAppointment(number)" [ngClass]="{'alreadySelected':number.reservedOrNot,'notSelected':!number.reservedOrNot,'outWorkHours':!number.workHoursOrNot,'disabled':number.daysOffOrNot}" cdkDrag [cdkDragDisabled]="!number.reservedOrNot" id="{{'mon'+ConvertAllToMin(number.StartTime.hour,number.StartTime.min)}}" *ngFor="let number of FillTableMon">
+                    <svg *ngIf="!number.reservedOrNot" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-lg addIcon" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
+                      </svg>
+                        <h3 *ngIf="number.reservedOrNot" class="textPatient">{{number.PatientName}}</h3>
+
+                </li>
+              </ul>
+
+              <ul class="column"
+              cdkDropList
+              [cdkDropListData]="FillTableTue"
+              [ngClass]="{'currentDay':this.getWholeDateFormatTemp(this.FillTableTue[0]?.date)==this.currentDayDate}"
+              (cdkDropListDropped)="drop($event)"
+              >
+                <li class="header">Tuesday <br> {{this.currentWeekDates[2] | date:'MM-dd'}}</li>
+                <li  class="tue" (click)="ReserveAppointment(number)" [ngClass]="{'alreadySelected':number.reservedOrNot,'notSelected':!number.reservedOrNot,'outWorkHours':!number.workHoursOrNot,'disabled':number.daysOffOrNot}" cdkDrag [cdkDragDisabled]="!number.reservedOrNot"  id="{{'tue'+ConvertAllToMin(number.StartTime.hour,number.StartTime.min)}}" *ngFor="let number of FillTableTue">
+                    <svg *ngIf="!number.reservedOrNot" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-lg addIcon" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
+                      </svg>
+                        <h3 *ngIf="number.reservedOrNot" class="textPatient">{{number.PatientName}}</h3>
+                </li>
+              </ul>
+
+              <ul class="column"
+              cdkDropList
+              [cdkDropListData]="FillTableWed"
+              [ngClass]="{'currentDay':this.getWholeDateFormatTemp(this.FillTableWed[0]?.date)==this.currentDayDate}"
+              (cdkDropListDropped)="drop($event)"
+              >
+                <li class="header">Wednesday <br> {{this.currentWeekDates[3] | date:'MM-dd'}}</li>
+                <li  class="wed" (click)="ReserveAppointment(number)" [ngClass]="{'alreadySelected':number.reservedOrNot,'notSelected':!number.reservedOrNot,'outWorkHours':!number.workHoursOrNot,'disabled':number.daysOffOrNot}" cdkDrag [cdkDragDisabled]="!number.reservedOrNot" id="{{'wed'+ConvertAllToMin(number.StartTime.hour,number.StartTime.min)}}" *ngFor="let number of FillTableWed">
+                    <svg *ngIf="!number.reservedOrNot" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-lg addIcon" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
+                      </svg>
+                      <h3 *ngIf="number.reservedOrNot" class="textPatient">{{number.PatientName}}</h3>
+                </li>
+              </ul>
+
+              <ul class="column"
+              cdkDropList
+              [cdkDropListData]="FillTableThu"
+              [ngClass]="{'currentDay':this.getWholeDateFormatTemp(this.FillTableThu[0]?.date)==this.currentDayDate}"
+              (cdkDropListDropped)="drop($event)"
+              >
+                <li class="header">Thursday <br> {{this.currentWeekDates[4] | date:'MM-dd'}}</li>
+                <li  class="thu" (click)="ReserveAppointment(number)" [ngClass]="{'alreadySelected':number.reservedOrNot,'notSelected':!number.reservedOrNot,'outWorkHours':!number.workHoursOrNot,'disabled':number.daysOffOrNot}" cdkDrag [cdkDragDisabled]="!number.reservedOrNot"  id="{{'thu'+ConvertAllToMin(number.StartTime.hour,number.StartTime.min)}}" *ngFor="let number of FillTableThu">
+                    <svg *ngIf="!number.reservedOrNot" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-lg addIcon" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
+                      </svg>
+                      <h3 *ngIf="number.reservedOrNot" class="textPatient">{{number.PatientName}}</h3>
+                </li>
+              </ul>
+
+              <ul class="column"
+              cdkDropList
+              [cdkDropListData]="FillTableFri"
+              [ngClass]="{'currentDay':this.getWholeDateFormatTemp(this.FillTableFri[0]?.date)==this.currentDayDate}"
+              (cdkDropListDropped)="drop($event)"
+              >
+                <li class="header">Friday <br> {{this.currentWeekDates[5] | date:'MM-dd'}}</li>
+                <li  class="fri" (click)="ReserveAppointment(number)" [ngClass]="{'alreadySelected':number.reservedOrNot,'notSelected':!number.reservedOrNot,'outWorkHours':!number.workHoursOrNot,'disabled':number.daysOffOrNot}" cdkDrag [cdkDragDisabled]="!number.reservedOrNot"  id="{{'fri'+ConvertAllToMin(number.StartTime.hour,number.StartTime.min)}}" *ngFor="let number of FillTableFri">
+                    <svg *ngIf="!number.reservedOrNot" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-lg addIcon" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
+                      </svg>
+                      <h3 *ngIf="number.reservedOrNot" class="textPatient">{{number.PatientName}}</h3>
+                </li>
+              </ul>
+
+              <ul class="column" 
+              cdkDropList
+              [cdkDropListData]="FillTableSat"
+              [ngClass]="{'currentDay':this.getWholeDateFormatTemp(this.FillTableSat[0]?.date)==this.currentDayDate}"
+              (cdkDropListDropped)="drop($event)"
+              >
+                <li class="header">Saturday <br> {{this.currentWeekDates[6] | date:'MM-dd'}}</li>
+                <li  class="sat" (click)="ReserveAppointment(number)" [ngClass]="{'alreadySelected':number.reservedOrNot,'notSelected':!number.reservedOrNot,'outWorkHours':!number.workHoursOrNot,'disabled':number.daysOffOrNot}" [cdkDragDisabled]="!number.reservedOrNot" cdkDrag  id="{{'sat'+ConvertAllToMin(number.StartTime.hour,number.StartTime.min)}}" *ngFor="let number of FillTableSat">
+                    <svg *ngIf="!number.reservedOrNot" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-lg addIcon" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
+                      </svg>
+                      <h3 *ngIf="number.reservedOrNot" class="textPatient">{{number.PatientName}}</h3>
+                   
+                </li>
+              </ul>
+
+
+             
+        </div>
+
+        <app-home
+        [Day]="currentSelectedSlot.day"
+        [Date]="currentSelectedSlot.date"
+        [Duration]="currentSelectedSlot.consultationDuration"
+        (onClick)="handleSubmit($event)"
+        >
+      </app-home>  
+
+
+      <app-pop-up-error
+          [ErrorMsg]="this.ErrorMsg"
+          (onClick)="handleConfirm()"
+          [ErrorOrNot]="this.ErrorOrNot"
+      >
+        
+      </app-pop-up-error>
+
+
+      <app-add-patient-pop-up>
+      </app-add-patient-pop-up>
+
+      <app-patient-details-pop-up
+      [PatientDetailsInput]="this.SendDetailsToEdit"
+      [AppointmentDetailsInput]="this.SendCurrentWeekDetails"
+      [AppointmentDateInput]="this.SendCurrentDate"
+
+      [currentSelectedSlot]="this.currentSelectedSlot"
+
+      (onClickDelete)="handleDeleteAppointment()"
+      (onClickEditPatientDetails)="handleEditPatientDetails($event)"
+      (onClickEditAppointmentDetails)="handleEditAppointmentDetails($event)"
+      (onClickEditPatientVitals)="handleEditPatientVitals($event)"
+
+      >
+      </app-patient-details-pop-up>
+
+      
+
+
+  
+        </div>
+
+
+  
+    <div class="OverElements" *ngIf="isWait" > 
+      <mat-progress-spinner mode="indeterminate">
+      </mat-progress-spinner>
+  </div>
+
+ 
+</div>
+
+
+
+<!-- <button class="btnSubmit" (click)="this.ToggleAddPatient()" >popup add patient</button> -->
+

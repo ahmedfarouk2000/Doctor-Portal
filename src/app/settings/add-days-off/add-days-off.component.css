@@ -1,0 +1,245 @@
+.container{
+    min-height: 60vh;
+    min-width: 60vh;
+    /* min-width: 60vh; */
+    /* padding: 4rem; */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+label{
+    font-size: 1.8rem;
+}
+.time-settings{
+    width: 60%;
+    font-size: 1.6rem;
+    margin: 10px;
+    padding: 5px;
+   }
+.btn{
+    padding: 10px 16px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+   }
+
+   @media (min-width: 360px) and (max-width: 926px) {
+       .container{
+           min-width: 30vh;
+       }
+       .time-settings{
+           width: 40%;
+          }
+     }
+
+
+.AppointmentDetailsForm{
+    /* height: 100%   ;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+   
+    background-color: red; */
+    /* background-color: red;
+    width: 100%;
+    height: 100%; */
+    width: 100%;
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+    .inputs{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        /* background-color: #FFC600; */
+        /* height: 80%; */
+        width: 100%;
+       
+        justify-content: center;
+        /* align-items: stretch; */
+        flex-wrap: wrap;
+        justify-content: space-around;
+    
+    }
+
+    
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 85%;
+}
+
+.wrapper span{
+    padding-left: 12px;
+}
+
+
+.dropDownContainer{
+    position: relative;
+
+}
+
+
+.input{
+    outline: none;
+    font-family: fontMedium;
+    /* padding: 16px 44px; */
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    /* width: 250px; */
+    height: 44px;
+    padding: 10px ;
+    /* padding: 10px  ; */
+    width: 100%;
+    border-radius: 14px;
+    /* margin-bottom: 36px; */
+    font-size: 14px;
+    transition: 0.4s all;
+    text-align: center;
+    box-sizing: border-box;
+    
+}
+
+
+
+
+.input:focus ,.inputDropDown:focus {
+    border-color: rgba(0, 0, 0, 0.5);
+}
+
+
+.openIcon{
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border-radius: 14px;
+    border-color: transparent;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    cursor: pointer;
+}
+
+
+
+.vertical-menu-opened-daysoff{
+    /* height: 200px; */
+    height: 200px;
+    overflow-y: auto;
+    transition: 0.4s all;
+    position: absolute;
+    left: 0;
+    right: 0;
+    border-radius:14px ;
+   
+}
+
+.vertical-menu-opened-daysoff a {
+    background-color: #eee;
+    color: black;
+    display: block;
+    padding: 12px;
+    text-decoration: none;
+    text-align: center;
+    transition: 0.3s all;
+    font-size: 14px; 
+    cursor: pointer;
+}
+.vertical-menu-opened-daysoff a:hover{
+    background: #FDF2DB; 
+    /* color: red; */
+}
+
+.error{
+    position: absolute;
+    opacity:0;
+    left: 0;
+    top: 90%;
+    color: red;
+    transition: 0.4s all;
+  }
+
+
+  .errorAdded{
+    position: absolute;
+    opacity:1;
+    left: 0;
+    top: 110%;   
+    color: red;
+    transition: 0.4s all;
+  }
+
+
+  .btnSubmitDaysOff { 
+    background-color: black;
+    border: solid black 2px;
+    border-radius: 40px;
+    /* width: 100%; */
+    transition: 0.4s all;
+    color: white;
+    cursor: pointer;
+    transition: 0.4s all;
+    font-size:1.2rem;
+    padding: 6px 30px ;
+    font-family: fontMedium;
+    align-self: center;
+    /* padding: 0.7rem 3rem ; */
+}
+.btnSubmitDaysOff:hover {
+    border: solid #FFC600 2px;
+    background-color:#FFC600 ;
+}
+
+.btnSubmitDaysOff:disabled{
+    cursor: not-allowed  ;
+    background-color: rgba(0, 0, 0, 0.3);
+    border: solid rgba(0, 0, 0, 0.1) 2px;
+}
+  
+
+  
+.vertical-menu-closed{
+    height: 0px;
+    /* overflow-y: auto; */
+    transition: 0.4s all;
+}
+
+
+h2 {
+    font-size: 2rem;
+    align-self: center;
+    letter-spacing: 2px;
+}
+
+.disabled{
+    pointer-events: none;
+}
+    
+
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #FDF2DB; 
+    border-radius: 14px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #FFC600; 
+    border-radius: 14px;
+  }
+
+::ng-deep .mat-dialog-container{
+    border-radius: 14px;
+}

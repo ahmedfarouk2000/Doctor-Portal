@@ -1,0 +1,297 @@
+<div class="popUpLayerEditPatient" >
+
+    <div  class="popUpEditPatient" >
+
+        <div class="exitEditPatient" (click)="TogglePopUp()">
+            <svg   xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+              </svg>
+        </div>
+        
+        <div class="delete" (click)="ConfirmDelete()" [ngClass]="{'disableDelete':this.currentDate > this.currentSelectedSlot.date}">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+                <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
+              </svg>
+        </div>
+
+        
+        <div class="publicErrorWrapper">
+            <h2>Patient Details</h2>
+            <span class="invalid" id="InvalidSpanEdit">*{{this.PublicError}}</span>
+        </div>
+
+        <mat-tab-group class="AllHeaders" mat-stretch-tabs>
+
+            <mat-tab label="Patient Details" >
+                <form class="PatientDetailsForm" [formGroup]="PatientDetailsForm" (ngSubmit)="HandleEditPatientDetails($event.submitter.id)">
+                            <div class="inputs">
+                                <div class="wrapper">
+                                        <span>Patient Name</span>
+                                        <input id='PatientNameEdit' type="text" placeholder="Enter Patient Name" class="input"
+                                            formControlName="PatientNameEdit" (keydown)="inputFunc($event.target)" autocomplete="off" >
+                                        <span class="error" id="PatientNameEditSpan">*{{CurrentPatientDetailsFormErrorMsg.PatientNameEdit}}</span>
+                                </div>
+            
+                                <div class="wrapper">
+                                    <span>Phone Number</span>
+                                    <input id='PhoneNumberEdit' type="text" placeholder="Enter Phone Number" class="input"
+                                        formControlName="PhoneNumberEdit" (keydown)="inputFunc($event.target)" autocomplete="off" maxlength="11">
+                                    <span class="error" id="PhoneNumberEditSpan">*{{CurrentPatientDetailsFormErrorMsg.PhoneNumberEdit}}</span>
+                                </div>
+            
+                                <div class="wrapper">
+                                    <span>Height</span>
+                                    <input id='HeightEdit' type="text" placeholder="Enter Height in cm" class="input"
+                                        formControlName="HeightEdit" (keydown)="inputFunc($event.target)" autocomplete="off" maxlength="3">
+                                    <span class="error" id="HeightEditSpan">*{{CurrentPatientDetailsFormErrorMsg.HeightEdit}}</span>
+                                </div>
+                            
+            
+            
+                                <div class="wrapper">
+                                        <span>Gender</span>
+                                        <div class="dropDownContainer"> 
+                                            <input  type="text" placeholder="Select Gender" class="input disabled GenderEdit" autocomplete="off" [value]="this.PatientDetailsForm.controls['GenderEdit'].getRawValue()">
+                                            <button (click)="ToggleDropDownPatientDetails()" class="openIcon">
+                                                <svg width="25" height="25" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="m6 9 6 6 6-6"></path>
+                                                </svg>
+                                            </button>
+                                            <div class="vertical-menu-opened" id="dropDownEditPatient">
+                                                <a (click)="setSelectedPatientDetails(gender)" *ngFor="let gender of this.Genders">{{gender}}</a>  
+                                            </div>
+                                        </div>
+            
+                                        <span class="error" id="GenderEditSpan">*{{CurrentPatientDetailsFormErrorMsg.GenderEdit}}</span> 
+                                </div>
+            
+                                
+            
+                                
+            
+                                <div class="wrapper">
+                                    <span>Birthdate</span>
+                                    <div class="ParentBirthDate">
+            
+                                        <input [max]="this.currentDate" (dateInput)="onDate($event)" class="input disabled date" matInput [matDatepicker]="picker1" autocomplete="off" placeholder="Select Birthdate" formControlName="BirthdateEdit" >
+                                        <mat-datepicker-toggle matSuffix [for]="picker1" class="iconDate"></mat-datepicker-toggle>
+                                        <mat-datepicker #picker1 ></mat-datepicker>
+            
+                                    </div>
+                                
+                                    <span class="error" id="BirthdateEditSpan">*{{CurrentPatientDetailsFormErrorMsg.BirthdateEdit}}</span>
+                                </div>
+            
+            
+            
+            
+                            </div>
+            
+                            <button class="btnSubmitEditPatient" id="submitEditPatient">Edit Patient Details</button>
+    
+                </form>
+            </mat-tab>
+
+            <mat-tab label="Appointment Details" >
+                <form class="AppointmentDetailsForm" [formGroup]="AppointmentDetailsForm" (ngSubmit)="HandleEditAppointmentDetails($event.submitter.id)">
+                    <div class="inputs">
+
+
+                        <div class="wrapper">
+                            <span>Date</span>
+                            <div class="ParentBirthDate">
+    
+                                <input [min]="this.currentDate" (dateInput)="onDateAppointmentDate($event)" class="input disabled date" matInput [matDatepicker]="picker2" autocomplete="off" placeholder="Selec Date" formControlName="Date" >
+                                <mat-datepicker-toggle matSuffix [for]="picker2" class="iconDate"></mat-datepicker-toggle>
+                                <mat-datepicker #picker2 ></mat-datepicker>
+    
+                            </div>
+                        
+                            <span class="error" id="DateSpan">*{{CurrentAppointmentDetailsFormErrorMsg.Date}}</span>
+                        </div>
+    
+                    
+                        <div class="wrapper">
+                                <span>Time</span>
+                                <div class="dropDownContainer"> 
+                                    <input  type="text" placeholder="Select Time" class="input disabled Time" autocomplete="off" [value]="this.AppointmentDetailsForm.controls['Time'].getRawValue()">
+                                    <button (click)="ToggleDropDownAppointmentDetails()" class="openIcon">
+                                        <svg width="25" height="25" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="m6 9 6 6 6-6"></path>
+                                        </svg>
+                                    </button>
+                                    <div class="vertical-menu-opened-times" id="dropDownEditAppointment">
+                                        <a (click)="setSelectedAppointmentDetails(time)" *ngFor="let time of this.AllAvailableTimes">{{time}}</a>  
+                                    </div>
+                                </div>
+    
+                                <span class="error" id="TimeSpan">*{{CurrentAppointmentDetailsFormErrorMsg.Time}}</span> 
+                        </div>
+    
+                    </div>
+    
+                    <button [attr.disabled]="this.currentDate > this.currentSelectedSlot.date ? '' : null" class="btnSubmitEditPatient" id="submitEditAppointment">Edit Appointment Details</button>
+
+        </form>
+
+            </mat-tab>
+
+            <mat-tab label="Patient Vitals">
+                <form class="PatientDetailsForm" [formGroup]="PatientVitalsForm" (ngSubmit)="HandleEditPatientVitals($event.submitter.id)">
+                    <div class="inputs">
+
+
+                        <div class="wrapper">
+                            <span>Temperature</span>
+                            <input id='Temperature' type="number" placeholder="Enter Temperature in Celsius" class="input"
+                                formControlName="Temperature" (keydown)="inputFunc($event.target)" autocomplete="off">
+                            <span class="error" id="TemperatureSpan">*{{CurrentPatientVitalsFormErrorMsg.Temperature}}</span>
+                        </div>
+
+                        <div class="wrapper">
+                            <span>Weight</span>
+                            <input id='Weight' type="number" placeholder="Enter Weight in kg" class="input"
+                                formControlName="Weight" (keydown)="inputFunc($event.target)" autocomplete="off">
+                            <span class="error" id="WeightSpan">*{{CurrentPatientVitalsFormErrorMsg.Weight}}</span>
+                        </div>
+
+                        <div class="wrapper">
+                            <span>Lower Blood Pressure</span>
+                            <input id='LowerBloodPressure' type="number" placeholder="Enter Lower Blood Pressure Reading" class="input"
+                                formControlName="LowerBloodPressure" (keydown)="inputFunc($event.target)" autocomplete="off">
+                            <span class="error" id="LowerBloodPressureSpan">*{{CurrentPatientVitalsFormErrorMsg.LowerBloodPressure}}</span>
+                        </div>
+
+                        <div class="wrapper">
+                            <span>Upper Blood Pressure</span>
+                            <input id='UpperBloodPressure' type="number" placeholder="Enter Upper Blood Pressure Reading" class="input"
+                                formControlName="UpperBloodPressure" (keydown)="inputFunc($event.target)" autocomplete="off">
+                            <span class="error" id="UpperBloodPressureSpan">*{{CurrentPatientVitalsFormErrorMsg.UpperBloodPressure}}</span>
+                        </div>
+
+                       
+
+                        <div class="wrapper">
+                                <span>Smoking Status</span>
+                                <div class="dropDownContainer"> 
+                                    <input  type="text" placeholder="Select Smoking Status" class="input disabled SmokingStatus" autocomplete="off" [value]="this.PatientVitalsForm.controls['SmokingStatus'].getRawValue()">
+                                    <button (click)="ToggleDropDownPatientVitals()" class="openIcon">
+                                        <svg width="25" height="25" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="m6 9 6 6 6-6"></path>
+                                        </svg>
+                                    </button>
+                                    <div class="vertical-menu-opened-vitals" id="dropDownPatientVitals">
+                                        <a (click)="setSelectedPatientVitals(currentSmokingStatus)" *ngFor="let currentSmokingStatus of this.SmokingStatus">{{currentSmokingStatus}}</a>  
+                                    </div>
+                                </div>
+
+                                <span class="error" id="SmokingStatusSpan">*{{CurrentPatientVitalsFormErrorMsg.SmokingStatus}}</span> 
+                        </div>
+
+                        <div class="wrapper">
+                            <span>Oxygen Saturation</span>
+                            <input id='Oxygen' type="number" placeholder="Enter Oxygen Saturation Percentage" class="input"
+                                formControlName="Oxygen" (keydown)="inputFunc($event.target)" autocomplete="off">
+                            <span class="error" id="OxygenSpan">*{{CurrentPatientVitalsFormErrorMsg.Oxygen}}</span>
+                        </div>
+                        
+    
+                    
+    
+                    </div>
+    
+                    <button [attr.disabled]="!this.SameDayToEditVitals ? '' : null" class="btnSubmitEditPatient" id="submitEditVitals">Edit Patient Vitals</button>
+
+        </form>
+
+
+            </mat-tab>
+
+            <mat-tab label="Patient EMR">
+
+
+                <div class="EMRcontainer">
+                        <span class="warningText">*{{this.EMRerrorMsg}}</span>
+                        <label class="custom-file-upload">
+                            <input  id='EMR' type="file" placeholder="Enter EMR" class="input" autocomplete="off"
+                                (input)="handleFileInput($event.target)" aria-label="File browser example">
+                
+                                <div class="postion">
+                                        <svg width="120" height="120" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="0.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                        <path d="M14 2v6h6"></path>
+                                        <path d="M12 18v-6"></path>
+                                        <path d="M9 15h6"></path>
+                                    </svg>
+                                    <span class="uploadText"> Upload File</span>
+                                </div>
+                           
+                        </label>
+
+                            <span class="AlluploadedText"> All Uploaded Files</span>
+                            <div class="currentFiles">
+
+                                
+                                <div class="fileCard" *ngFor="let EMRfile of this.currentEMR?.files">
+                                    <div class="contentUplaod">
+                                    <svg width="50" height="50" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+                                            <path d="M13 2v7h7"></path>
+                                        </svg>
+                                        <span>{{EMRfile?.fileName}}</span>
+                                    </div>
+                                        <div class="hoverLayer">
+                                        
+                                            <div class="printDocument"(click)="handlePrint(EMRfile?.path)">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#000000" class="bi bi-printer" viewBox="0 0 16 16">
+                                                    <path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/>
+                                                    <path d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2H5zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4V3zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2H5zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1z"/>
+                                                </svg>
+                                            </div>
+                                            <div class="deleteDocument"  (click)="deleteEMR(EMRfile?.documentId)" >
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#000000" class="bi bi-trash3" viewBox="0 0 16 16">
+                                                    <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
+                                                </svg>
+                                            </div>
+                                            
+
+
+                                        </div>
+                                </div>
+
+                                    
+                                <div class="NoFiles" *ngIf="this.currentEMR==null">
+                                        <svg width="50" height="50" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                            <path d="M14 2v6h6"></path>
+                                            <path d="M9 15h6"></path>
+                                        </svg>
+                                        <span class="noUploadText"> No Files Were Uploaded!</span>
+                                </div>   
+
+                            </div>
+
+                </div>
+       
+       
+                
+            </mat-tab>
+        </mat-tab-group>
+       
+
+        
+
+        
+
+
+    </div>
+
+    
+
+</div>
+
+<div class="OverElements" *ngIf="Uploading" > 
+    <mat-progress-spinner mode="indeterminate">
+    </mat-progress-spinner>
+</div>

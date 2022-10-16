@@ -1,0 +1,45 @@
+<div class="Content">
+      <div class="box-form">
+            <div class="left">
+                  <!-- <div class="img"></div> -->
+                  <img src="https://upload.wikimedia.org/wikipedia/ar/d/da/%D8%B4%D8%B9%D8%A7%D8%B1_%D8%B4%D8%B1%D9%83%D8%A9_%D8%A5%D9%8A%D9%81%D8%A7_%D9%81%D8%A7%D8%B1%D9%85%D8%A7.png" alt="">
+            </div>      
+      
+      
+            <div class="right">
+                  <h3>Login Into Account</h3>
+                  <h3 class="error">{{errmessage}}</h3>
+                  <form [formGroup]="loginForm" (ngSubmit)="loginSubmit()">
+                        <div class="inputs">
+                              <input type="email" formControlName="email" placeholder="Email Address">
+                              <br />
+                              <span *ngIf="
+                              loginForm.controls['email'].hasError('required') &&
+                              loginForm.controls['email'].touched" class="error">*Email is required
+                              </span>
+      
+                              <span *ngIf="
+                              loginForm.controls['email'].hasError('email') &&
+                              loginForm.controls['email'].touched" class="error">*Enter Valid Email</span>
+      
+                              <input type="password" placeholder="password" formControlName="password">
+                              <span *ngIf="
+                                          loginForm.controls['password'].hasError('required') &&
+                                          loginForm.controls['password'].touched" class="error">*Password is required
+                              </span>
+                        </div>
+                        <br />
+                        <!-- <button [disabled]="loginForm.invalid">Login</button> -->
+                        <button class="btnSubmit" [disabled]="loginForm.invalid">Login</button>
+                        <br />
+                     
+                  </form>
+      
+            </div>
+      
+      </div>
+
+
+</div>
+
+

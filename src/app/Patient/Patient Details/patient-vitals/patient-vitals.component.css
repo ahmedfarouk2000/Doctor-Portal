@@ -1,0 +1,191 @@
+/* 
+
+.patient-card {
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    background-color: rgba(220, 243, 247, 0.233);
+    box-shadow: 3px 3px 5px rgb(0 0 0 / 70%);
+    width: 90%;
+}
+
+.patient-card-details {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.patient-details {
+    margin-bottom: 35px;
+    color: #000;
+    width: 50%;
+    background-color: rgb(249 155 88 / 7%);
+    padding: 10px;
+}
+
+
+
+.btn {
+    padding: 10px 20px;
+    margin: 10px;
+}
+
+@media (min-width: 360px) and (max-width: 926px) {
+
+    .patient-card {
+        flex-direction: column;
+    }
+
+    .patient-details {
+        margin-bottom: 25px;
+        width: 50%;
+    }
+
+}
+
+.navBarrr {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 15px;
+    margin-bottom: 25px;
+}
+
+.list {
+    display: flex;
+    justify-content: flex-end;
+    list-style: none;
+    background-color: rgb(77, 109, 109);
+    border-radius: 15px;
+
+}
+
+.nav__item--active {
+    background-color: var(--grey-Dark-3);
+}
+
+.list-nav {
+    padding: 12px 5px;
+    border-radius: 15px;
+}
+
+.nav {
+    text-decoration: none;
+    padding: 15px 30px;
+    color: #fff;
+    font-size: 1.5rem;
+    margin: 10px;
+    border-radius: 25px;
+}  */
+
+.Content {
+    /* background-image: url('../../../assets/images/homeCover2.jpg'); */
+    background-size: 100% 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-color: #E5E5E5;
+    /* background-color: red; */
+  }
+  
+  
+  .container {
+    background-color: white;
+    /* padding: 10rem 20rem; */
+    /* border-radius: 20; */
+    width: 95%;
+    min-height: 90vh;
+    margin: 32px;
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-around; */
+    justify-content: flex-start;
+    
+    align-items: center;
+    box-shadow: 0 0 20px rgb(33 33 33 / 10%);
+    /* position: relative; */
+  
+  }
+  
+  .OverElements {
+    position: absolute;
+    z-index: 9999;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    /* filter: blur(4px); */
+    background-color: rgb(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  :host ::ng-deep .OverElements circle {
+    stroke: #FFC600;
+  }
+
+  .card{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: red; */
+    box-shadow: 0 0 20px rgb(33 33 33 / 20%);
+    border-radius: 14px;
+    width: 30%;
+    margin-bottom: 32px;
+    transition: 0.4s all;
+  }
+
+  .card:hover{
+    box-shadow: 0 0 20px rgb(33 33 33 / 40%);
+    transform: translateY(-10px);
+  
+  }
+  
+  .cards{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    /* background-color: red; */
+    width: 85%;
+  }
+
+  .AllApointmentsText {
+    /* letter-spacing: 2px; */
+    font-size: 2rem;
+    margin: 6px;
+    color: black;
+    padding: 32px;
+  }
+  .orange{
+    color: #FFC600;
+  }
+
+  .title{
+    font-size: 1.5rem;
+  }
+
+
+  .NoApointmentsText{
+    /* letter-spacing: 2px; */
+    font-size: 1.5rem;
+    margin: 6px;
+    color: rgba(255, 0, 0, 0.6);
+  }
+
+  .NoFiles{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 32px;
+  }
+  
+
+ 

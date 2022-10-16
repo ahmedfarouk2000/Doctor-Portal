@@ -1,0 +1,350 @@
+.Content{   
+    /* background-image: url('../../../assets/images/homeCover2.jpg'); */
+    background-size: 100% 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center ;
+    align-items: center;
+    position: relative;
+    background-color: #E5E5E5;
+    /* background-color: red; */
+}
+
+
+.blackLayer{
+    
+    background-color: rgba(0, 0, 0, 0.1);
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+
+
+
+
+
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+
+:root{
+    --blocksize: 100px;
+    --color: #b6db23;
+    --dark: red;
+    --light: #d9e1b6;
+}
+
+
+body {
+  color: var(--light);
+  background: var(--dark);
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.container{
+    background-color: white;
+    /* padding: 10rem 20rem; */
+    /* border-radius: 20; */
+    width: 95%;
+    min-height: 90vh;
+    margin: 32px; 
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0 0 20px rgb(33 33 33 / 10%);
+    /* position: relative; */
+
+}
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+li {
+  /* margin: 10px 10px 0 0; */
+  /* padding: 22px 22px; */
+ 
+  padding-left: 22px;
+  padding-right: 22px;
+  padding-top: 22px; 
+  padding-bottom: 22px;
+  width:  80px;
+  height: 40px;
+
+  cursor: cell;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 10);
+  user-select:none;
+  display: flex;
+  flex: row;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* li.sat{
+    padding-left: 22px;
+    padding-right: 22px;
+    padding: calc(22px /1.5) 22px;
+  height: calc(40px / 1.5); 
+} */
+
+li.focus {
+  background: #b6db23;
+}
+
+.ghost {
+  position: fixed;
+  z-index: 1000;
+  background: transparent;
+  box-shadow: inset 0 0 0 1px var(--color);
+}
+
+.column{
+    /* background-color: red; */
+    display: flex;
+    flex-direction: column;
+    /* padding: 10px; */
+
+}
+.calendar{ 
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 95%;
+    margin-bottom: 25px;
+    /* transition: 0.4s all; */
+    
+}
+
+
+.normal{
+    background-color: aqua;
+}
+
+h2{
+    font-size: 22px;
+}
+
+.header{
+    background-color: transparent;
+    position: relative;
+    box-shadow:  0px 1px 0px 0px rgba(0, 0, 0, 10);
+    text-align: center;
+}
+.times{
+    background-color: transparent;
+    position: relative;
+    box-shadow: 1px 0 1px rgba(0, 0, 0, 10);
+    /* box-shadow:  0px 1px 0px 0px rgba(0, 0, 0, 10); */
+    width: 10px;
+    
+     /* background-color: red; */
+}
+.empty{
+    background-color: transparent;
+    position: relative;
+    box-shadow:  0px 1px 0px 0px rgba(0, 0, 0, 10);
+    /* box-shadow: 1px 0 1px rgba(0, 0, 0, 10); */
+    /* box-shadow:  0px 1px 0px 0px rgba(0, 0, 0, 10); */
+    width: 10px;
+    /* background-color: red; */
+}
+
+.timeStyle{
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1rem;
+    /* font-size: 12; */
+    /* background-color: red; */
+    /* right: 0; */
+
+}
+
+.addIcon{
+    /* background-color: red; */
+    /* color: red; */
+    /* width: 10px; */
+    color: rgba(0, 0, 0, 0.4);
+}
+
+.transparent{
+    box-shadow:  0px 0px 0px 0px rgba(0, 0, 0, 10);
+}
+
+
+
+.alreadySelected{
+    /* background-color: rgba(255, 0, 0, 0.242); */
+    background-color: rgba(255, 198, 0, 0.4);
+    cursor:  all-scroll;
+}
+
+
+.notSelected{
+    background-color: rgba(0, 0, 0, 0.1);
+    cursor: cell;
+    transition: 0.4s all;
+}
+.notSelected:hover{
+    background-color: rgba(255, 198, 0, 0.3);
+    box-shadow: 0 0 20px rgb(33 33 33 / 20%);
+}
+
+.outWorkHours{
+    background-color: rgba(128, 128, 128, 0.5);
+    pointer-events: none; 
+}
+
+.disabled{ 
+    background-color: gray;
+    /* pointer-events: none;  */
+}
+.disabled:hover{
+    background-color: gray;
+    box-shadow: none;
+}
+
+  
+    
+.alreadySelectedLabel{
+    /* position: absolute; */
+    background-color: #b6db23;
+    font-size: 11;
+    color: green;
+
+}
+
+.overflow{
+    overflow: hidden;
+    background-color: aqua;
+}
+
+.tempColor{
+    background-color: aqua;
+}
+
+.item-draggable {
+    position: relative;
+  /* transform:  !important; */
+}
+
+.textPatient{
+    text-align: center;
+    margin: 0;
+}
+.currentDay{
+    /* border: solid #FFC600 2px; */
+    border: solid #FFC600 2px;
+    box-shadow: 0 0 20px rgb(33 33 33 / 20%);
+    transform: translateY(-2px);
+}
+
+.OverElements{
+    position: absolute;
+    z-index: 9999;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    /* filter: blur(4px); */
+    background-color: rgb(0, 0, 0,0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.OverElementsBlur{
+    position: absolute;
+    /* z-index: 999; */
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    filter: blur(6px);
+    background: black;
+    opacity: 0.3;
+    /* background-color: red; */
+    /* background-color: rgba(0, 0, 0, 0.2); */
+    /* background-color: red; */
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+}
+
+:host ::ng-deep .OverElements circle{   
+    stroke: #FFC600;
+}
+
+.HiddenUntilLoad{
+    display: none;
+    /* transition: 0.4s all; */
+}
+
+
+
+/* .cdk-drag {
+    transition: none;
+  }
+  
+  .cdk-drag-animating {
+    transition: none;
+  } */
+
+.leftarrow,.rightarrow  {
+    transition: 0.4s all;
+    background-color: transparent;
+    border: transparent 0px ;
+    cursor: pointer;
+}
+
+.leftarrow:hover  {
+    transform: translateX(-10px);
+    color: #FFC600 ;
+    transition: 0.4s all;
+
+}
+.rightarrow:hover {
+    transform: translateX(10px);
+    color: #FFC600 ;
+    transition: 0.4s all;
+}
+
+
+.arrowContainer{
+    display: flex;
+    /* background-color: red; */
+    align-items: center;
+    /* justify-content: space-between; */
+}
+
+.arrows{
+    display: flex;
+    justify-content: space-between;
+    /* background-color: red; */
+    width: 102%;
+    position: absolute;
+    top: 3%;
+
+}
+

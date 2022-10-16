@@ -1,0 +1,48 @@
+<div class="popUpLayerError"  id="popUpLayer">
+
+    <div class="popUpError" id="searchPage">
+
+        <div class="exitError" id="exitSearch" (click)="togglePopUpError()">
+            <svg   xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+              </svg>
+        </div>
+
+        <svg *ngIf="!ErrorOrNot" width="120" height="120" fill="none" stroke="#FFC600" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2a10 10 0 1 0 0 20 10 10 0 1 0 0-20z"></path>
+            <path d="M12 8v4"></path>
+            <path d="M12 16h.01"></path>
+         </svg>
+
+         <svg *ngIf="ErrorOrNot" width="120" height="120" fill="none" stroke="#FFC600" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path>
+            <path d="m9 12 2 2 4-4"></path>
+         </svg>
+
+        <h2>{{ErrorMsg}}</h2>
+
+       
+        <div *ngIf="ErrorOrNot" class="buttonContainer">
+            <button class="btnSubmitError"  (click)="Confirm()">Confirm</button>
+            <button class="buttonMain"  (click)="togglePopUpError()">Cancel</button>
+        </div>
+
+        <div *ngIf="!ErrorOrNot" class="buttonContainer">
+            <button class="btnSubmitError" (click)="togglePopUpError()">OK</button>
+        </div>
+      
+
+      
+        
+
+
+    </div>
+
+
+
+
+   
+
+
+
+</div>

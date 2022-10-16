@@ -1,0 +1,50 @@
+<div class="container">
+    
+    <h2>Add Working Hours</h2>
+    
+    <form [formGroup]="adjustForm" (ngSubmit)="setWorkingHours()">
+
+        <div class="day">
+                <label>Select Day</label>
+                <select formControlName="Day" class="input">
+                    <option value="Sunday">Sunday </option>
+                    <option value="Monday">Monday </option>
+                    <option value="Tuesday">Tuesday </option>
+                    <option value="Wednesday">Wednesday </option>
+                    <option value="Thursday">Thursday </option>
+                    <option value="Friday">Friday </option>
+                    <option value="Saturday">Saturday </option>
+                </select>
+
+                <span *ngIf="
+                adjustForm.controls['Day'].hasError('required') &&
+                adjustForm.controls['Day'].touched" 
+                class="error">Day is required</span>
+        </div>
+
+            <div class="day">
+                        <label>StartTime</label>
+                        <input class="input" formControlName="StartTime" type="time" />
+                        <span *ngIf="
+                        adjustForm.controls['StartTime'].hasError('required') &&
+                        adjustForm.controls['StartTime'].touched" 
+                        class="error">Start Time is required</span>
+            
+            </div>
+
+            <div class="day">
+                        <label>To Time</label>
+                        <input class="input" formControlName="EndTime" type="time"  />
+                        <span 
+                        *ngIf="
+                        adjustForm.controls['EndTime'].hasError('required') &&
+                        adjustForm.controls['EndTime'].touched"  
+                        class="error">To Time is required</span>
+            </div>
+
+        <button [disabled]="adjustForm.invalid" class="btnSubmit">Confirm</button>
+        <h3 class="label" *ngIf="res">Working Hours {{res.message}}</h3>
+    </form>
+
+
+</div>

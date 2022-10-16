@@ -39,8 +39,27 @@ As a doctor / admin, I want to be able to create a new patient, so that I can re
 
 
 ## Visual Representation
+![login](https://user-images.githubusercontent.com/93868173/196012259-ed06e81b-da4e-49d7-b13a-50412f2138f6.png)
+
+![calendar 1](https://user-images.githubusercontent.com/93868173/196012270-2a19d634-f421-4047-afe8-edcb0db5daef.png)
+
+![reserve](https://user-images.githubusercontent.com/93868173/196012280-24d57f97-660a-409d-8642-34c3431541a6.png)
+
+![add new patient](https://user-images.githubusercontent.com/93868173/196012285-0dc260d2-802a-457a-946c-703aef6b474d.png)
 
 
+![add new patinet2](https://user-images.githubusercontent.com/93868173/196012286-294e04d0-27a0-4996-8893-9ee663aaeed6.png)
+![confirm appoint](https://user-images.githubusercontent.com/93868173/196012287-2b7831e3-e962-41ad-a42c-2534e5f8edf5.png)
+![confirm reserve](https://user-images.githubusercontent.com/93868173/196012290-9ccff073-acdb-4237-979c-a44daa8c2b2f.png)
+![edit vitals](https://user-images.githubusercontent.com/93868173/196012295-7fb74f44-f4bd-485f-bcb6-9772bd433d83.png)
 
+![ConsultationDuration](https://user-images.githubusercontent.com/93868173/196012320-cb689c22-3ec7-4c22-9161-ca246ad0f6a9.png)
+![daysOff](https://user-images.githubusercontent.com/93868173/196012324-80dae8dc-3aab-44eb-907a-779e88165539.png)
 
+![dynamic search](https://user-images.githubusercontent.com/93868173/196012331-1176f951-2272-48ed-9019-6d807d55347b.png)
+![patient details](https://user-images.githubusercontent.com/93868173/196012354-021bafc2-eccc-4dc9-849b-a9f9184c5b88.png)
 
+![not found](https://user-images.githubusercontent.com/93868173/196012344-404e0328-0977-4d14-9a4f-9a613150a687.png)
+![emr2](https://user-images.githubusercontent.com/93868173/196012352-28f7af77-e9aa-4ac9-aa41-fa158b26a3a4.png)
+
+![vitals](https://user-images.githubusercontent.com/93868173/196012347-c66ab90a-6388-47a9-b7f6-7804a9ed4f4e.png)

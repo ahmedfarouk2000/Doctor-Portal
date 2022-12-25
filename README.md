@@ -7,7 +7,7 @@ The assistant should be able to do the below actions:
 -	Reserve / cancel patient appointments 
 -	Enter / Update the patient data before the appointment 
 -	Enter / update the patient’s EMR before the appointment (Patient Vitals / Medical Tests & Scans)
--Live Demo https://drive.google.com/file/d/11ZE0pLZnwWt1ZBcu0Beh8DlLf-iFiMX5/view?usp=sharing
+- Live Demo https://drive.google.com/file/d/11ZE0pLZnwWt1ZBcu0Beh8DlLf-iFiMX5/view?usp=sharing
 
 ## Technologies
 Project is created with:

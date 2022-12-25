@@ -64,3 +64,11 @@ As a doctor / admin, I want to be able to create a new patient, so that I can re
 ![emr2](https://user-images.githubusercontent.com/93868173/196012352-28f7af77-e9aa-4ac9-aa41-fa158b26a3a4.png)
 
 ![vitals](https://user-images.githubusercontent.com/93868173/196012347-c66ab90a-6388-47a9-b7f6-7804a9ed4f4e.png)
+
+
+## Quick Tour
+https://user-images.githubusercontent.com/93868173/209458639-cb274fcb-70a9-4a90-b7c2-3ab28a2dddca.mp4
+
+
+
+

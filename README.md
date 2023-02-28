@@ -8,6 +8,7 @@ The assistant should be able to do the below actions:
 -	Enter / Update the patient data before the appointment 
 -	Enter / update the patient’s EMR before the appointment (Patient Vitals / Medical Tests & Scans)
 - Live Demo https://drive.google.com/file/d/11ZE0pLZnwWt1ZBcu0Beh8DlLf-iFiMX5/view?usp=sharing
+--full report: [EVA Phrama internship.docx](https://github.com/ahmedfarouk2000/Doctor-Portal/files/10852613/EVA.Phrama.internship.docx)
 
 ## Technologies
 Project is created with:
@@ -68,6 +69,7 @@ As a doctor / admin, I want to be able to create a new patient, so that I can re
 
 ## Quick Tour
 https://user-images.githubusercontent.com/93868173/209458639-cb274fcb-70a9-4a90-b7c2-3ab28a2dddca.mp4
+
 
 
 

@@ -1,4 +1,4 @@
-# Project Title
+# Doctor Portal
 
 The goal of this product is to give our doctors an easy way to manage appointments within their clinics and maintain their patients’ histories.
 The portal should have 2 different user privileges, one for the doctor & another for his assistant. 
